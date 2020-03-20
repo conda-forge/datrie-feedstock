@@ -10,7 +10,7 @@ source:
   sha256: bdd5da6ba6a97e7cd96eef2e7441c8d2ef890d04ba42694a41c7dffa3aca680c
 
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script: 
     - cython src/datrie.pyx
