@@ -8,12 +8,13 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: bdd5da6ba6a97e7cd96eef2e7441c8d2ef890d04ba42694a41c7dffa3aca680c
-
+  patches:
+    - py38-cython.patch
 build:
   number: 0
   skip: True  # [py2k]
-  script: 
-    - cython src/datrie.pyx
+  script:
+    - rm src/datrie.c src/cdatrie.c src/stdio_ext.c
     - "{{ PYTHON }} -m pip install . --no-deps --ignore-installed  -vvv"
 
 requirements:
@@ -26,7 +27,7 @@ requirements:
     - pytest-runner
     - setuptools
   run:
-    - python    
+    - python
 
 test:
   imports:
