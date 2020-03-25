@@ -11,7 +11,7 @@ source:
   patches:
     - py38-cython.patch
 build:
-  number: 0
+  number: 1
   skip: True  # [py2k]
   script:
     - rm src/datrie.c src/cdatrie.c src/stdio_ext.c
