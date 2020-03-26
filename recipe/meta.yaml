@@ -8,13 +8,11 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 525b08f638d5cf6115df6ccd818e5a01298cd230b2dac91c8ff2e6499d18765d
-  patches:
-    - py38-cython.patch
+
 build:
   number: 0
   skip: true  # [py2k]
   script:
-    - rm src/datrie.c src/cdatrie.c src/stdio_ext.c
     - {{ PYTHON }} -m pip install . --no-deps --ignore-installed  -vvv
 
 requirements:
